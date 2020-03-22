@@ -7,7 +7,10 @@ package blaster.controller;
 
 import blaster.model.Articulo;
 import blaster.model.ArticuloContado;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -27,13 +30,14 @@ public class Operaciones {
     private int totalPorArticulo = 0;
     private ArrayList<ArticuloContado> nuevaLista = new ArrayList<>();
     private int contadorZona = 0;
+    private ArrayList<Integer> indicesRevision = new ArrayList<>();
 
     public void cargarBase() {
         System.out.println("Cargar la base desde operaciones");
         fileChooser.showOpenDialog(fileChooser);
         ruta = fileChooser.getSelectedFile().getAbsolutePath();
         listaBase = es.leerArchivoBase(ruta);
-        listaParaContar = listaBase;
+        listaParaContar = es.leerArchivoBase(ruta);
         for (Articulo articulo : listaParaContar) {
             articulo.setCantidad(0);
         }   
@@ -70,6 +74,22 @@ public class Operaciones {
             this.zona = zona;
         } else {
             this.zona = "";
+        }
+    }
+    
+    public void generarReporteDeConteo(){
+        try {
+            es.generaReporteConteo(nuevaLista, ruta);
+        } catch (IOException ex) {
+            Logger.getLogger(Operaciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void generaReporteDeDiferencas(){
+        try {
+            indicesRevision = es.gererarReporteDiferencias(listaParaContar, ruta,listaBase);
+        } catch (IOException ex) {
+            Logger.getLogger(Operaciones.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

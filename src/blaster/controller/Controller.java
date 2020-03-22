@@ -29,6 +29,8 @@ public class Controller implements ActionListener {
         vista.getMenuCargaBase().addActionListener(this);
         vista.getBtnContar().addActionListener(this);
         vista.getBtnZon().addActionListener(this);
+        vista.getMenuReporteConteo().addActionListener(this);
+        vista.getMenuReporteDif().addActionListener(this);
         llenarTable();
     }
 
@@ -85,6 +87,12 @@ public class Controller implements ActionListener {
                     op.establecerZona(vista.getTfZona().getText());
                     JOptionPane.showMessageDialog(null, "La zona establecida es " + vista.getTfZona().getText(), "ZONA", JOptionPane.INFORMATION_MESSAGE);
 
+                }else{
+                    if(e.getSource() == vista.getMenuReporteConteo()){
+                        op.generarReporteDeConteo();
+                    }else{
+                        op.generaReporteDeDiferencas();
+                    }
                 }
             }
         }

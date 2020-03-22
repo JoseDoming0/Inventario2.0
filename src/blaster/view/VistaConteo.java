@@ -579,8 +579,22 @@ public class VistaConteo extends javax.swing.JFrame{
     public void setjTable1(JTable jTable1) {
         this.jTable1 = jTable1;
     }
-    
-    
+
+    public JMenuItem getMenuReporteConteo() {
+        return menuReporteConteo;
+    }
+
+    public void setMenuReporteConteo(JMenuItem menuReporteConteo) {
+        this.menuReporteConteo = menuReporteConteo;
+    }
+
+    public JMenuItem getMenuReporteDif() {
+        return menuReporteDif;
+    }
+
+    public void setMenuReporteDif(JMenuItem menuReporteDif) {
+        this.menuReporteDif = menuReporteDif;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnContar;
