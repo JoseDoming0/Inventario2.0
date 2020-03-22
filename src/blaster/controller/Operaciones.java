@@ -31,6 +31,7 @@ public class Operaciones {
     private ArrayList<ArticuloContado> nuevaLista = new ArrayList<>();
     private int contadorZona = 0;
     private ArrayList<Integer> indicesRevision = new ArrayList<>();
+    private ArrayList<Articulo> listaDiferencias = new ArrayList<>();
 
     public void cargarBase() {
         System.out.println("Cargar la base desde operaciones");
@@ -93,6 +94,15 @@ public class Operaciones {
         }
     }
     
+    public void generaReportesRevision(){
+        try {
+            es.reporteRevision(listaParaContar, ruta);
+            es.reporteRevisionSoloDiferencias(listaDiferencias, ruta);
+        } catch (IOException ex) {
+            Logger.getLogger(Operaciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
 
     public int getContador() {
         return contador;
@@ -133,7 +143,28 @@ public class Operaciones {
     public void setNuevaLista(ArrayList<ArticuloContado> nuevaLista) {
         this.nuevaLista = nuevaLista;
     }
-    
-    
 
+    public ArrayList<Integer> getIndicesRevision() {
+        return indicesRevision;
+    }
+
+    public void setIndicesRevision(ArrayList<Integer> indicesRevision) {
+        this.indicesRevision = indicesRevision;
+    }
+
+    public ArrayList<Articulo> getListaBase() {
+        return listaBase;
+    }
+
+    public void setListaBase(ArrayList<Articulo> listaBase) {
+        this.listaBase = listaBase;
+    }
+
+    public ArrayList<Articulo> getListaDiferencias() {
+        return listaDiferencias;
+    }
+
+    public void setListaDiferencias(ArrayList<Articulo> listaDiferencias) {
+        this.listaDiferencias = listaDiferencias;
+    }
 }

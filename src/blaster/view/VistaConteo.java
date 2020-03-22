@@ -58,19 +58,19 @@ public class VistaConteo extends javax.swing.JFrame{
         jTable1 = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        lblFArticulo = new javax.swing.JLabel();
+        lblFDescrip = new javax.swing.JLabel();
+        lblFSistema = new javax.swing.JLabel();
+        lblFFisico = new javax.swing.JLabel();
+        lblRMArt = new javax.swing.JLabel();
+        lblRMDesc = new javax.swing.JLabel();
+        tfRSistema = new javax.swing.JTextField();
+        tfRFisico = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btnRSiguiente = new javax.swing.JButton();
+        btnRGuardar = new javax.swing.JButton();
+        btnREditar = new javax.swing.JButton();
+        btnRRepRevisado = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuCargaBase = new javax.swing.JMenuItem();
@@ -272,21 +272,21 @@ public class VistaConteo extends javax.swing.JFrame{
 
         jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel1.setText("jLabel1");
+        lblFArticulo.setText("Artículo");
 
-        jLabel2.setText("jLabel2");
+        lblFDescrip.setText("Descripción");
 
-        jLabel3.setText("jLabel3");
+        lblFSistema.setText("Sistema");
 
-        jLabel4.setText("jLabel4");
+        lblFFisico.setText("Físico");
 
-        jLabel5.setText("jLabel5");
+        lblRMArt.setText("=====");
 
-        jLabel6.setText("jLabel6");
+        lblRMDesc.setText("=====");
 
-        jTextField1.setText("jTextField1");
+        tfRSistema.setEnabled(false);
 
-        jTextField2.setText("jTextField2");
+        tfRFisico.setEnabled(false);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -295,49 +295,53 @@ public class VistaConteo extends javax.swing.JFrame{
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(104, 104, 104)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel5))
+                    .addComponent(lblFArticulo)
+                    .addComponent(lblRMArt))
                 .addGap(110, 110, 110)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel6))
+                    .addComponent(lblFDescrip)
+                    .addComponent(lblRMDesc))
                 .addGap(105, 105, 105)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblFSistema)
+                    .addComponent(tfRSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(63, 63, 63))
+                    .addComponent(lblFFisico)
+                    .addComponent(tfRFisico, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(49, 49, 49))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
+                    .addComponent(lblFArticulo)
+                    .addComponent(lblFDescrip)
+                    .addComponent(lblFSistema)
+                    .addComponent(lblFFisico))
                 .addGap(34, 34, 34)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblRMArt)
+                    .addComponent(lblRMDesc)
+                    .addComponent(tfRSistema, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfRFisico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(90, Short.MAX_VALUE))
         );
 
         jPanel7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jButton2.setText("jButton2");
+        btnRSiguiente.setText("Siguiente >>");
+        btnRSiguiente.setEnabled(false);
 
-        jButton3.setText("jButton3");
+        btnRGuardar.setText("Guardar");
+        btnRGuardar.setEnabled(false);
 
-        jButton4.setText("jButton4");
+        btnREditar.setText("Editar");
+        btnREditar.setEnabled(false);
 
-        jButton5.setText("jButton5");
+        btnRRepRevisado.setText("Reporte Revisado");
+        btnRRepRevisado.setEnabled(false);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -345,13 +349,13 @@ public class VistaConteo extends javax.swing.JFrame{
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(87, 87, 87)
-                .addComponent(jButton2)
+                .addComponent(btnRSiguiente)
                 .addGap(66, 66, 66)
-                .addComponent(jButton3)
+                .addComponent(btnRGuardar)
                 .addGap(78, 78, 78)
-                .addComponent(jButton4)
+                .addComponent(btnREditar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                .addComponent(jButton5)
+                .addComponent(btnRRepRevisado)
                 .addGap(52, 52, 52))
         );
         jPanel7Layout.setVerticalGroup(
@@ -359,10 +363,10 @@ public class VistaConteo extends javax.swing.JFrame{
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addContainerGap(41, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5))
+                    .addComponent(btnRSiguiente)
+                    .addComponent(btnRGuardar)
+                    .addComponent(btnREditar)
+                    .addComponent(btnRRepRevisado))
                 .addGap(36, 36, 36))
         );
 
@@ -375,7 +379,7 @@ public class VistaConteo extends javax.swing.JFrame{
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(204, Short.MAX_VALUE))
+                .addContainerGap(150, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -596,19 +600,79 @@ public class VistaConteo extends javax.swing.JFrame{
         this.menuReporteDif = menuReporteDif;
     }
 
+    public JButton getBtnREditar() {
+        return btnREditar;
+    }
+
+    public void setBtnREditar(JButton btnREditar) {
+        this.btnREditar = btnREditar;
+    }
+
+    public JButton getBtnRGuardar() {
+        return btnRGuardar;
+    }
+
+    public void setBtnRGuardar(JButton btnRGuardar) {
+        this.btnRGuardar = btnRGuardar;
+    }
+
+    public JButton getBtnRRepRevisado() {
+        return btnRRepRevisado;
+    }
+
+    public void setBtnRRepRevisado(JButton btnRRepRevisado) {
+        this.btnRRepRevisado = btnRRepRevisado;
+    }
+
+    public JButton getBtnRSiguiente() {
+        return btnRSiguiente;
+    }
+
+    public void setBtnRSiguiente(JButton btnRSiguiente) {
+        this.btnRSiguiente = btnRSiguiente;
+    }
+
+    public JLabel getLblRMArt() {
+        return lblRMArt;
+    }
+
+    public void setLblRMArt(JLabel lblRMArt) {
+        this.lblRMArt = lblRMArt;
+    }
+
+    public JLabel getLblRMDesc() {
+        return lblRMDesc;
+    }
+
+    public void setLblRMDesc(JLabel lblRMDesc) {
+        this.lblRMDesc = lblRMDesc;
+    }
+
+    public JTextField getTfRFisico() {
+        return tfRFisico;
+    }
+
+    public void setTfRFisico(JTextField tfRFisico) {
+        this.tfRFisico = tfRFisico;
+    }
+
+    public JTextField getTfRSistema() {
+        return tfRSistema;
+    }
+
+    public void setTfRSistema(JTextField tfRSistema) {
+        this.tfRSistema = tfRSistema;
+    }
+    
+    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnContar;
+    private javax.swing.JButton btnREditar;
+    private javax.swing.JButton btnRGuardar;
+    private javax.swing.JButton btnRRepRevisado;
+    private javax.swing.JButton btnRSiguiente;
     private javax.swing.JButton btnZon;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -623,22 +687,28 @@ public class VistaConteo extends javax.swing.JFrame{
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lblBaseCargada;
     private javax.swing.JLabel lblFArtActual;
     private javax.swing.JLabel lblFArtContados;
     private javax.swing.JLabel lblFArtPorZona;
+    private javax.swing.JLabel lblFArticulo;
     private javax.swing.JLabel lblFCodigoArt;
+    private javax.swing.JLabel lblFDescrip;
+    private javax.swing.JLabel lblFFisico;
+    private javax.swing.JLabel lblFSistema;
     private javax.swing.JLabel lblFTotalArtContados;
     private javax.swing.JLabel lblMArtContados;
     private javax.swing.JLabel lblMArtPoZona;
     private javax.swing.JLabel lblMArtTotal;
+    private javax.swing.JLabel lblRMArt;
+    private javax.swing.JLabel lblRMDesc;
     private javax.swing.JLabel lblZona;
     private javax.swing.JMenuItem menuCargaBase;
     private javax.swing.JMenuItem menuReporteConteo;
     private javax.swing.JMenuItem menuReporteDif;
     private javax.swing.JTextField tfIntroduceArt;
+    private javax.swing.JTextField tfRFisico;
+    private javax.swing.JTextField tfRSistema;
     private javax.swing.JTextField tfZona;
     // End of variables declaration//GEN-END:variables
 }

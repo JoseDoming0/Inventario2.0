@@ -6,14 +6,10 @@
 package blaster.controller;
 
 import blaster.model.Articulo;
-import blaster.model.ArticuloContado;
 import blaster.view.VistaConteo;
 import java.awt.Color;
-import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import javax.swing.Action;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,6 +20,8 @@ public class Controller implements ActionListener {
 
     private VistaConteo vista = new VistaConteo();
     private Operaciones op = new Operaciones();
+    private int i = 0;
+    private int editarPosicion = 0;
 
     public Controller() {
         vista.getMenuCargaBase().addActionListener(this);
@@ -31,6 +29,10 @@ public class Controller implements ActionListener {
         vista.getBtnZon().addActionListener(this);
         vista.getMenuReporteConteo().addActionListener(this);
         vista.getMenuReporteDif().addActionListener(this);
+        vista.getBtnRSiguiente().addActionListener(this);
+        vista.getBtnREditar().addActionListener(this);
+        vista.getBtnRGuardar().addActionListener(this);
+        vista.getBtnRRepRevisado().addActionListener(this);
         llenarTable();
     }
 
@@ -41,8 +43,8 @@ public class Controller implements ActionListener {
     public void setVista(VistaConteo vista) {
         this.vista = vista;
     }
-    
-     public void llenarTable() {
+
+    public void llenarTable() {
         String[][] datosTabla = new String[op.getNuevaLista().size()][5];
         for (int i = 0; i < op.getNuevaLista().size(); i++) {
             datosTabla[i][0] = String.valueOf(op.getNuevaLista().get(i).getNumero());
@@ -87,16 +89,56 @@ public class Controller implements ActionListener {
                     op.establecerZona(vista.getTfZona().getText());
                     JOptionPane.showMessageDialog(null, "La zona establecida es " + vista.getTfZona().getText(), "ZONA", JOptionPane.INFORMATION_MESSAGE);
 
-                }else{
-                    if(e.getSource() == vista.getMenuReporteConteo()){
+                } else {
+                    if (e.getSource() == vista.getMenuReporteConteo()) {
                         op.generarReporteDeConteo();
-                    }else{
-                        op.generaReporteDeDiferencas();
+                    } else {
+                        if (e.getSource() == vista.getMenuReporteDif()) {
+                            op.generaReporteDeDiferencas();
+                            vista.getBtnRSiguiente().setEnabled(true);
+                            vista.getBtnREditar().setEnabled(true);
+                            vista.getBtnRRepRevisado().setEnabled(true);
+                        } else {
+                            if (e.getSource() == vista.getBtnRSiguiente()) {
+                                vista.getBtnRGuardar().setEnabled(true);
+                                if (i < op.getIndicesRevision().size()) {
+                                    editarPosicion = op.getIndicesRevision().get(i);
+                                    vista.getLblRMArt().setText(op.getListaParaContar().get(op.getIndicesRevision().get(i)).getCodigo());
+                                    vista.getLblRMDesc().setText(op.getListaParaContar().get(op.getIndicesRevision().get(i)).getDescripcion());
+                                    vista.getTfRSistema().setText(String.valueOf(op.getListaBase().get(op.getIndicesRevision().get(i)).getCantidad()));
+                                    vista.getTfRFisico().setText(String.valueOf(op.getListaParaContar().get(op.getIndicesRevision().get(i)).getCantidad()));
+                                    i++;
+                                } else {
+                                    vista.getBtnRGuardar().setEnabled(false);
+                                    JOptionPane.showMessageDialog(null, "Revisión terminada");
+                                }
+                            } else {
+                                if (e.getSource() == vista.getBtnREditar()) {
+                                    vista.getTfRFisico().setEnabled(true);
+                                } else {
+                                    if (e.getSource() == vista.getBtnRGuardar()) {
+                                        op.getListaParaContar().get(editarPosicion).setCantidad(Integer.parseInt(vista.getTfRFisico().getText()));
+                                        vista.getTfRFisico().setEnabled(false);
+                                        vista.getBtnRGuardar().setEnabled(false);
+                                        if (!(op.getListaParaContar().get(editarPosicion).getCantidad() == op.getListaBase().get(editarPosicion).getCantidad())) {
+                                            op.getListaDiferencias().add(new Articulo(op.getListaParaContar().get(editarPosicion).getCodigo(),
+                                                    op.getListaParaContar().get(editarPosicion).getDescripcion(),
+                                                     op.getListaParaContar().get(editarPosicion).getCantidad(),
+                                                    op.getListaParaContar().get(editarPosicion).getLote(),
+                                                    op.getListaParaContar().get(editarPosicion).getEan()));
+                                        }
+                                    }else{
+                                        if(e.getSource() == vista.getBtnRRepRevisado()){
+                                            op.generaReportesRevision();
+                                        }
+                                    }                                                                                       
+                                }
+                            }
+                        }
                     }
                 }
             }
         }
-
     }
 
 }

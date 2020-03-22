@@ -159,5 +159,76 @@ public class EntradaSalida {
         JOptionPane.showMessageDialog(null, "Se ha creado el reporte", "Reporte Final", JOptionPane.INFORMATION_MESSAGE);
         return indicesRevision;
     }
+     
+     public void reporteRevision(ArrayList<Articulo> contadosRevision, String ruta) throws  IOException{
+         
+        String marca = "";
+        Workbook wb = new HSSFWorkbook();
+        CreationHelper createHelper = wb.getCreationHelper();
+        org.apache.poi.ss.usermodel.Sheet hoja1 = wb.createSheet("Reporte revisado");
+
+        Row fila1 = hoja1.createRow(0);
+        fila1.createCell(0).setCellValue("Codigo de Producto");
+        fila1.createCell(1).setCellValue("Nombre de Producto");
+        fila1.createCell(2).setCellValue("Cantidad");
+        fila1.createCell(3).setCellValue("Lote");
+        fila1.createCell(4).setCellValue("ean13");
+  
+        int rowNum = 1;
+        int numero = 1;
+        int n1 = 0, n2 = 0;
+        for (int i = 0; i < contadosRevision.size(); i++) {
+
+            Row row = hoja1.createRow(rowNum++);
+            row.createCell(0).setCellValue(contadosRevision.get(i).getCodigo());
+            row.createCell(1).setCellValue(contadosRevision.get(i).getDescripcion());
+            row.createCell(2).setCellValue(contadosRevision.get(i).getCantidad());
+            row.createCell(3).setCellValue(contadosRevision.get(i).getLote());
+            row.createCell(4).setCellValue(contadosRevision.get(i).getEan());
+           
+        }
+        marca = JOptionPane.showInputDialog("Marca:");
+        String archivo = "Reporte revision " + marca;
+        System.out.println("Reporte creado");
+        FileOutputStream fileOut = new FileOutputStream(ruta+archivo + ".xls");
+        wb.write(fileOut);
+        fileOut.close();
+        JOptionPane.showMessageDialog(null, "Se ha creado el reporte", "Reporte Final", JOptionPane.INFORMATION_MESSAGE);
+    }
+     
+     public void reporteRevisionSoloDiferencias(ArrayList<Articulo> sinDiferencia, String ruta) throws  IOException{
+        String marca = "";
+        Workbook wb = new HSSFWorkbook();
+        CreationHelper createHelper = wb.getCreationHelper();
+        org.apache.poi.ss.usermodel.Sheet hoja1 = wb.createSheet("Reporte revisado");
+
+        Row fila1 = hoja1.createRow(0);
+        fila1.createCell(0).setCellValue("Codigo de Producto");
+        fila1.createCell(1).setCellValue("Nombre de Producto");
+        fila1.createCell(2).setCellValue("Cantidad");
+        fila1.createCell(3).setCellValue("Lote");
+        fila1.createCell(4).setCellValue("ean13");
+  
+        int rowNum = 1;
+        int numero = 1;
+        int n1 = 0, n2 = 0;
+        for (int i = 0; i < sinDiferencia.size(); i++) {
+
+            Row row = hoja1.createRow(rowNum++);
+            row.createCell(0).setCellValue(sinDiferencia.get(i).getCodigo());
+            row.createCell(1).setCellValue(sinDiferencia.get(i).getDescripcion());
+            row.createCell(2).setCellValue(sinDiferencia.get(i).getCantidad());
+            row.createCell(3).setCellValue(sinDiferencia.get(i).getLote());
+            row.createCell(4).setCellValue(sinDiferencia.get(i).getEan());
+           
+        }
+        marca = JOptionPane.showInputDialog("Marca:");
+        String archivo = "Reporte importacion " + marca;
+        System.out.println("Reporte creado");
+        FileOutputStream fileOut = new FileOutputStream(ruta+archivo + ".xls");
+        wb.write(fileOut);
+        fileOut.close();
+        JOptionPane.showMessageDialog(null, "Se ha creado el reporte", "Reporte Final", JOptionPane.INFORMATION_MESSAGE);
+    }
     
 }
