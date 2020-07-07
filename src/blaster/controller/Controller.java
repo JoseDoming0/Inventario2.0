@@ -33,6 +33,7 @@ public class Controller implements ActionListener {
         vista.getBtnREditar().addActionListener(this);
         vista.getBtnRGuardar().addActionListener(this);
         vista.getBtnRRepRevisado().addActionListener(this);
+        vista.getMenuAbout().addActionListener(this);
         llenarTable();
     }
 
@@ -123,15 +124,20 @@ public class Controller implements ActionListener {
                                         if (!(op.getListaParaContar().get(editarPosicion).getCantidad() == op.getListaBase().get(editarPosicion).getCantidad())) {
                                             op.getListaDiferencias().add(new Articulo(op.getListaParaContar().get(editarPosicion).getCodigo(),
                                                     op.getListaParaContar().get(editarPosicion).getDescripcion(),
-                                                     op.getListaParaContar().get(editarPosicion).getCantidad(),
+                                                    op.getListaParaContar().get(editarPosicion).getCantidad(),
                                                     op.getListaParaContar().get(editarPosicion).getLote(),
                                                     op.getListaParaContar().get(editarPosicion).getEan()));
                                         }
-                                    }else{
-                                        if(e.getSource() == vista.getBtnRRepRevisado()){
+                                    } else {
+                                        if (e.getSource() == vista.getBtnRRepRevisado()) {
                                             op.generaReportesRevision();
+                                        } else {
+                                            if(e.getSource() == vista.getMenuAbout()){
+                                                JOptionPane.showMessageDialog(null, "Desarrollado por: Jose Domingo Juarez Camacho \n ::: Version: 1.0:::\n"
+                + "d-_-b");
+                                            }
                                         }
-                                    }                                                                                       
+                                    }
                                 }
                             }
                         }

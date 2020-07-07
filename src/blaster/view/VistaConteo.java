@@ -76,7 +76,8 @@ public class VistaConteo extends javax.swing.JFrame{
         menuCargaBase = new javax.swing.JMenuItem();
         menuReporteConteo = new javax.swing.JMenuItem();
         menuReporteDif = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        Ayuda = new javax.swing.JMenu();
+        menuAbout = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -407,8 +408,12 @@ public class VistaConteo extends javax.swing.JFrame{
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Ayuda");
-        jMenuBar1.add(jMenu2);
+        Ayuda.setText("Ayuda");
+
+        menuAbout.setText("Acerca de...");
+        Ayuda.add(menuAbout);
+
+        jMenuBar1.add(Ayuda);
 
         setJMenuBar(jMenuBar1);
 
@@ -447,6 +452,8 @@ public class VistaConteo extends javax.swing.JFrame{
     public JTextField getTfZona() {
         return tfZona;
     }
+    
+    
 
     /**
      * @param args the command line arguments
@@ -663,10 +670,17 @@ public class VistaConteo extends javax.swing.JFrame{
     public void setTfRSistema(JTextField tfRSistema) {
         this.tfRSistema = tfRSistema;
     }
-    
-    
 
+    public JMenuItem getMenuAbout() {
+        return menuAbout;
+    }
+
+    public void setMenuAbout(JMenuItem menuAbout) {
+        this.menuAbout = menuAbout;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu Ayuda;
     private javax.swing.JButton btnContar;
     private javax.swing.JButton btnREditar;
     private javax.swing.JButton btnRGuardar;
@@ -674,7 +688,6 @@ public class VistaConteo extends javax.swing.JFrame{
     private javax.swing.JButton btnRSiguiente;
     private javax.swing.JButton btnZon;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -703,6 +716,7 @@ public class VistaConteo extends javax.swing.JFrame{
     private javax.swing.JLabel lblRMArt;
     private javax.swing.JLabel lblRMDesc;
     private javax.swing.JLabel lblZona;
+    private javax.swing.JMenuItem menuAbout;
     private javax.swing.JMenuItem menuCargaBase;
     private javax.swing.JMenuItem menuReporteConteo;
     private javax.swing.JMenuItem menuReporteDif;
