@@ -10,6 +10,10 @@ import blaster.view.VistaConteo;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -132,9 +136,9 @@ public class Controller implements ActionListener {
                                         if (e.getSource() == vista.getBtnRRepRevisado()) {
                                             op.generaReportesRevision();
                                         } else {
-                                            if(e.getSource() == vista.getMenuAbout()){
+                                            if (e.getSource() == vista.getMenuAbout()) {
                                                 JOptionPane.showMessageDialog(null, "Desarrollado por: Jose Domingo Juarez Camacho \n ::: Version: 1.0:::\n"
-                + "d-_-b");
+                                                        + "d-_-b");
                                             }
                                         }
                                     }
@@ -147,4 +151,20 @@ public class Controller implements ActionListener {
         }
     }
 
+    public void validarLicencia() {
+        try {
+            Date fechaHoy = new Date();
+            SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+            String fechaHoyString = formatoFecha.format(fechaHoy);
+            Date fechaFinal = formatoFecha.parse("2020-08-06");
+            Date fechaH = formatoFecha.parse(fechaHoyString);
+
+            if (!fechaH.before(fechaFinal)) {
+                JOptionPane.showMessageDialog(null, "Se termino la vigencia " 
+                  ,"Licencia caducada"  , JOptionPane.ERROR_MESSAGE);
+                System.exit(0);
+            }
+        } catch (ParseException ex) {
+        }
+    }
 }

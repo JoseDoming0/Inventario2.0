@@ -1,5 +1,6 @@
 
 import blaster.controller.Controller;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.UIManager;
@@ -22,6 +23,7 @@ public class TestInventario {
             
             Controller c = new Controller();
             c.getVista().setVisible(true);
+            c.validarLicencia();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(TestInventario.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
